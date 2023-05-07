@@ -28,22 +28,21 @@ body {
 	overflow-x: clip;
 	z-index: 2;
 }
+@media(min-width: 190px){
+	.landing {}
+}
 @media(max-width: 768px){
 	.landing {
-		height: 290vh;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		padding: 0 0 100rem;
 	}
 	.container {
 		padding: 0 30px;
 	}
 }
-@media(max-width: 414px){
-	.landing {
-		height: 225vh;
-	}
-}
+
 .container header {
 	position: relative;
     width: 100%;
@@ -101,6 +100,11 @@ body {
 	margin-bottom: 330px;
 	overflow: hidden;
 }
+@media(max-width: 768px){
+	.container .info  {
+		margin-bottom: 80px;
+	}
+}
 .container .info p {
 	width: 570px;
     margin: 35px auto;
@@ -111,6 +115,7 @@ body {
 @media(max-width: 653px){
 	.container .info p {
 		width: 100%;
+	    font-size: 36px;
 	}
 }
 .container .info p span {
@@ -127,6 +132,7 @@ body {
 	bottom: 8px;
 }
 .container .info a {
+	position: sticky;
 	background-color: #47fd9e;
 	display: block;
 	width: 160px;
@@ -164,9 +170,11 @@ body {
 }
 @media(max-width: 768px){
 	.landing .mobile {
+		height: 300px;
+		width: 300px;
 		transform: translateX(-45%) rotate(-45deg);
 		left: 50%;
-		top: 445px;
+		top: 350px;
 	}
 }
 .landing:after {
