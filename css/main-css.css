@@ -4,22 +4,20 @@
 	box-sizing: border-box;
 	margin: 0;
     padding: 0;
+	overflow-x: clip;
 }
-
-
 body {
 	background-color: #fff;
 	font-family: sans-serif;
 	margin: 0;
 	padding: 0;
 }
-/* Start Container */
+/* Start Landing */
 .landing {
 	position: relative;
 	background-color: #f7f7f7;
     width: 100%;
     height: 200vh;
-	margin-bottom: 200px;
 }
 .container {
 	position: relative;
@@ -29,6 +27,22 @@ body {
 	padding: 0 100px;
 	overflow-x: clip;
 	z-index: 2;
+}
+@media(max-width: 768px){
+	.landing {
+		height: 290vh;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.container {
+		padding: 0 30px;
+	}
+}
+@media(max-width: 414px){
+	.landing {
+		height: 225vh;
+	}
 }
 .container header {
 	position: relative;
@@ -43,6 +57,7 @@ body {
 .container header a {
 	text-decoration: none;
 	color: #fff;
+    margin: 0 20px
 }
 .main-heading {
 	font-size: 30px;
@@ -56,11 +71,10 @@ body {
 }
 .main-heading:hover {
 	transform: scale(1.1);
-	/* transform: translate3d(10px, 10px, 10px); */
 	transition: 0.3s;
 	cursor: pointer;
 }
-.container .left-heading {
+.container header .left-heading {
 	border-bottom: 2px solid #47fd9e;
     padding-bottom: 2px;
 }
@@ -94,6 +108,11 @@ body {
 	color: #FFF;
 	font-family: 'Bodoni Moda', serif;
 }
+@media(max-width: 653px){
+	.container .info p {
+		width: 100%;
+	}
+}
 .container .info p span {
 	position: relative;
 }
@@ -124,7 +143,7 @@ body {
 	background: transparent;
     color: #47fd9e;
 }
-.back:after {
+.container:after {
 	content: "";
 	position: absolute;
 	background-color: #430c56;
@@ -143,6 +162,13 @@ body {
     transform: translateX(-50%);
 	z-index: 2;
 }
+@media(max-width: 768px){
+	.landing .mobile {
+		transform: translateX(-45%) rotate(-45deg);
+		left: 50%;
+		top: 445px;
+	}
+}
 .landing:after {
 	content: "";
 	position: absolute;
@@ -152,20 +178,31 @@ body {
     bottom: -240px;
     clip-path: ellipse(51% 25% at 50% 9%);
 }
-.data {
+.landing .data {
 	display: flex;
     text-align: center;
 	gap: 25px;
 }
-.data > div {
+@media(max-width: 768px){
+	.landing .data {
+	    flex-direction: column;
+		align-items: center;
+	}
+}
+.landing .data > div {
     width: calc(100% / 3);
 }
-.data h1,
+@media(max-width: 768px){
+	.landing .data > div {
+		width: 100%;
+	}
+}
+.landing .data h1,
 .data h2 {
 	font-family: 'Bodoni Moda', serif;
 	margin: 0 auto 35px;
 }
-.data h1 {
+.landing .data h1 {
 	width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -174,54 +211,92 @@ body {
     display: flex;
     justify-content: center;
 }
-.data p {
+.landing .data p {
 	line-height: 1.6;
 }
-/* End Container */
+/* End Landing */
+
 /* Start contact-us */
 .contact-us {
 	position: relative;
 	display: flex;
 	width: 100%;
-	height: 500px;
 	padding: 0 13%;
 	margin-bottom: 100px;
 }
-.contact-us img {
+.contact-us .holder {
+	position: relative;
+    width: 100%;
+}
+@media(max-width: 1110px){
+	.contact-us {
+		flex-direction: column;
+		align-items: center;
+		padding: 20rem 0;
+	}
+}
+@media(max-width: 678px){
+	.contact-us {
+		padding: 20rem 0;
+		margin-top: -10rem;
+	}
+}
+.contact-us .holder img {
 	border-radius: 50%;
 	width: 400px;
 	height: 400px;
 }
-.contact-us .popap {
-    position: absolute;
-	width: 220px;
-    height: 220px;
-    bottom: -30px;
-    left: 65%;
-	z-index: 2;
-}
-.contact-us .info {
+
+.contact-us .holder .info {
     position: absolute;
     background-color: #430c56;
-    width: 655px;
-    height: 300px;
+    width: 70%;
     padding: 30px 45px;
-    left: 38%;
-    top: 30%;
+	right: 0;
+    top: 145px;
     color: #FFF;
 	gap: 35px;
     display: flex;
     flex-direction: column;
     align-items: self-start;
 }
-.contact-us .info h2 {
+@media(max-width: 1110px){
+	.contact-us .holder {
+		display: flex;
+		flex-direction: column;
+		text-align: center;
+		align-items: center;
+	}
+	.contact-us .holder .info {
+		left: 50%;
+		transform: translate(-50%);
+		top: 430px;
+		width: 100%;
+		display: flex;
+		align-items: center;
+	}
+}
+@media(max-width: 678px){
+	.contact-us .holder .info {
+		padding: 35px 15px;
+	}
+}
+.contact-us .holder .info .popap {
+    position: absolute;
+	width: 220px;
+    height: 220px;
+    bottom: -100px;
+    left: 65%;
+	z-index: 2;
+}
+.contact-us .holder .info h2 {
 	font-family: 'Bodoni Moda', serif;
 	font-size: 35px;
 }
-.contact-us .info p {
+.contact-us .holder .info p {
 	line-height: 1.7;
 }
-.contact-us .info a {
+.contact-us .holder .info a {
 	background-color: #47fd9e;
     padding: 14px 10px;
     font-weight: 600;
@@ -229,7 +304,7 @@ body {
     border: 2px solid #47fd9e;
     text-decoration: none;
 }
-.contact-us .info a:hover {
+.contact-us .holder .info a:hover {
 	background: transparent;
     color: #47fd9e;
 }
@@ -237,11 +312,17 @@ body {
 
 /* Start Footer */
 footer {
-	display: flex;
+	padding: 10rem 0;
+    display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 5rem 0;
-	gap: 2rem;
+    justify-content: center;
+    gap: 3rem;
+}
+@media(max-width: 470px){
+	footer {
+		padding: 5rem 0;
+	}
 }
 footer .tow {
 	color: #430c56;
@@ -253,37 +334,37 @@ footer ul {
     list-style-type: none;
 	display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 25px;
 }
 footer ul li {
+	position: relative;
 	display: flex;
     align-items: center;
     justify-content: center;
 	width: 35px;
     height: 35px;
 	border-radius: 4px;
-	color: #ccc;
 	font-size: 25px;
 	cursor: pointer;
 }
-footer ul li a {
-	color: #ccc;
+footer ul li:nth-of-type(1):hover {
+	background-color: #1877f2;
 }
-footer ul li:nth-of-type(1):hover a {
-	color: #1877f2;
+footer ul li:nth-of-type(2):hover{
+	background-color: #1d9bf0 ;
 }
-footer ul li:nth-of-type(2):hover a {
-	color: #0073b1;
+footer ul li:nth-of-type(3):hover{
+	background: linear-gradient(-30deg, #fe9d00, #ee00bb);
 }
 footer ul li:nth-of-type(3):hover a {
-	/* color: lightcoral; */
-	color: #bb34b4;
+	color: #FFF;
 }
-footer ul li:nth-of-type(4):hover a {
-	color: #1d9bf0;
+footer ul li a {
+	color: #777;
 }
-footer ul li:hover {
-	background-color: rgb(0 0 0 / 15%);
+footer ul li:hover a {
+	color: #fff;
 }
+
 /* End Footer */
 
